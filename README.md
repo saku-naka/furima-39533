@@ -9,58 +9,64 @@
 | encrypted_password | string | null: false               |
 | first_name         | string | null: false               |
 | last_name          | string | null: false               |
-| birthday           | string | null: false               |
+| read_first         | string | null: false               |
+| read_last          | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
-- belongs_to :items
-- belongs_to :purchase
-- belong_to :send
+- has_many :items
+- has_many :item_purchases
 
 
 ## itemsテーブル
 
-|    Column    |  Type  |   Options   |
-| ------------ | ------ | ----------- |
-| item_image   | text   | null: false |
-| product_name | string | null: false |
-| description  | string | null: false |
-| detail       | string | null: false |
-| price        | string | null: false |
+|      Column      |    Type    |            Options             |
+| ---------------- | ---------- | ------------------------------ |
+| product_name     | string     | null: false                    |
+| description      | text       | null: false                    |
+| category_id      | integer    | null: false, foreign_key: true |
+| condition_id     | integer    | null: false, foreign_key: true |
+| postage_id       | integer    | null: false, foreign_key: true |
+| prefectures_id   | integer    | null: false, foreign_key: true |
+| shipping_date_id | integer    | null: false, foreign_key: true |
+| price            | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
-- has_many :user
-- has_many :purchase
-- has_many :send
+- belongs_to :user
+- has_one :item_purchase
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :postage
+- belongs_to_active_hash :prefectures
+- belongs_to_active_hash :shipping_date
 
 
-## purchaseテーブル
+## ordersテーブル
 
-|     Column      |  Type  |            Options             |
-| --------------- | ------ | ------------------------------ |
-| item_image      | text   | null: false, foreign_key: true |
-| product_name    | string | null: false, foreign_key: true |
-| price           | string | null: false, foreign_key: true |
-| delivery_charge | string | null: false                    |
-| total_price     | string | null: false                    |
+|     Column    |    Type    |            Options             |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
+| purchase_info | references | null: false, foreign_key: true |
 
 ### Association
-- has_many :user
+- belongs_to :user
 - belongs_to :items
-- belongs_to :send
+- has_one :purchage_info
 
 
-## sendテーブル
+## purchase_infoテーブル
 
-|     Column      |  Type  |   Options   |
-| --------------- | ------ | ----------- |
-| post_code      | integer | null: false |
-| prefectures    | string  | null: false |
-| municipalities | string  | null: false |
-| address        | string  | null: false |
-| building_name  | string  | null: false |
-| phone_num      | integer | null: false |
+|     Column     |  Type   |             Options            |
+| -------------- | ------- | ------------------------------ |
+| post_code      | integer | null: false                    |
+| prefectures_id | integer | null: false, foreign_key: true |
+| municipalities | string  | null: false                    |
+| address        | string  | null: false                    |
+| building_name  | string  |                                |
+| phone_num      | integer | null: false                    |
 
 ### Association
-- has_many :user
-- belongs_to :items
-- has_one :purchase
+- belongs_to :order
+- belongs_to_active_hash :prefectures
