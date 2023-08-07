@@ -27,7 +27,7 @@
 | category_id      | integer    | null: false                    |
 | condition_id     | integer    | null: false                    |
 | postage_id       | integer    | null: false                    |
-| prefectures_id   | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
 | shipping_date_id | integer    | null: false                    |
 | price            | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
@@ -38,7 +38,7 @@
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :postage
-- belongs_to_active_hash :prefectures
+- belongs_to_active_hash :prefecture
 - belongs_to_active_hash :shipping_date
 
 
@@ -61,7 +61,7 @@
 |     Column     |  Type   |   Options   |
 | -------------- | ------- | ----------- |
 | post_code      | integer | null: false |
-| prefectures_id | integer | null: false |
+| prefecture_id | integer | null: false |
 | municipalities | string  | null: false |
 | address        | string  | null: false |
 | building_name  | string  |             |
