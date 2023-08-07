@@ -24,11 +24,11 @@
 | ---------------- | ---------- | ------------------------------ |
 | product_name     | string     | null: false                    |
 | description      | text       | null: false                    |
-| category_id      | integer    | null: false, foreign_key: true |
-| condition_id     | integer    | null: false, foreign_key: true |
-| postage_id       | integer    | null: false, foreign_key: true |
-| prefectures_id   | integer    | null: false, foreign_key: true |
-| shipping_date_id | integer    | null: false, foreign_key: true |
+| category_id      | integer    | null: false                    |
+| condition_id     | integer    | null: false                    |
+| postage_id       | integer    | null: false                    |
+| prefectures_id   | integer    | null: false                    |
+| shipping_date_id | integer    | null: false                    |
 | price            | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
@@ -58,14 +58,14 @@
 
 ## purchase_infoテーブル
 
-|     Column     |  Type   |             Options            |
-| -------------- | ------- | ------------------------------ |
-| post_code      | integer | null: false                    |
-| prefectures_id | integer | null: false, foreign_key: true |
-| municipalities | string  | null: false                    |
-| address        | string  | null: false                    |
-| building_name  | string  |                                |
-| phone_num      | integer | null: false                    |
+|     Column     |  Type   |   Options   |
+| -------------- | ------- | ----------- |
+| post_code      | integer | null: false |
+| prefectures_id | integer | null: false |
+| municipalities | string  | null: false |
+| address        | string  | null: false |
+| building_name  | string  |             |
+| phone_num      | integer | null: false |
 
 ### Association
 - belongs_to :order
