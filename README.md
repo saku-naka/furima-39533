@@ -44,19 +44,19 @@
 
 ## ordersテーブル
 
-|     Column    |    Type    |            Options             |
-| ------------- | ---------- | ------------------------------ |
-| user          | references | null: false, foreign_key: true |
-| item          | references | null: false, foreign_key: true |
-| purchase_info | references | null: false, foreign_key: true |
+|       Column     |    Type    |            Options             |
+| ---------------- | ---------- | ------------------------------ |
+| user             | references | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
+| shipping_address | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :items
-- has_one :purchage_info
+- has_one :shipping_address
 
 
-## purchase_infoテーブル
+## shipping_addressesテーブル
 
 |     Column     |  Type   |   Options   |
 | -------------- | ------- | ----------- |
