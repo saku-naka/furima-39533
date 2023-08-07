@@ -60,8 +60,8 @@
 
 |     Column     |  Type   |   Options   |
 | -------------- | ------- | ----------- |
-| post_code      | integer | null: false |
-| prefecture_id | integer | null: false |
+| post_code      | string  | null: false |
+| prefecture_id  | integer | null: false |
 | municipalities | string  | null: false |
 | address        | string  | null: false |
 | building_name  | string  |             |
