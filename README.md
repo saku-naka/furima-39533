@@ -34,7 +34,7 @@
 
 ### Association
 - belongs_to :user
-- has_one :
+- has_one :order
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :postage
