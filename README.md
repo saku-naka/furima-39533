@@ -33,7 +33,7 @@
 | user             | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_one :
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
@@ -50,7 +50,7 @@
 | item             | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - belongs_to :items
 - has_one :shipping_addresses
 
@@ -68,5 +68,5 @@
 | order          | references | null: false, foreign_key: true |
 
 ### Association
-- has_one :orders
+- belongs_to :order
 - belongs_to_active_hash :prefectures
