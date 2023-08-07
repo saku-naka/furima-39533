@@ -65,7 +65,7 @@
 | municipalities | string  | null: false |
 | address        | string  | null: false |
 | building_name  | string  |             |
-| phone_num      | integer | null: false |
+| phone_num      | string  | null: false |
 
 ### Association
 - belongs_to :order
