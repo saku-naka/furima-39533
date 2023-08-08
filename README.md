@@ -52,7 +52,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping_addresse
+- has_one :shipping_address
 
 
 ## shipping_addressesテーブル
@@ -61,7 +61,7 @@
 | -------------- | ---------- | ------------------------------ |
 | post_code      | string     | null: false                    |
 | prefecture_id  | integer    | null: false                    |
-| municipality | string     | null: false                    |
+| municipality   | string     | null: false                    |
 | address        | string     | null: false                    |
 | building_name  | string     |                                |
 | phone_num      | string     | null: false                    |
