@@ -10,5 +10,4 @@ class User < ApplicationRecord
   validates :first_name, presence: true, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
   validates :read_last, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
   validates :read_first, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
-  validates :birthday, presence: true
 end
