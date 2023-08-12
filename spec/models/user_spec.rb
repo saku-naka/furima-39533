@@ -99,12 +99,12 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Read first is invalid")
       end
       it '姓（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
-        @user.last_name = 'たなか'
+        @user.last_name = 'Tanaka'
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name is invalid")
       end
       it '名（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
-        @user.last_name = '太郎'
+        @user.first_name = 'Tarou'
         @user.valid?
         expect(@user.errors.full_messages).to include("First name is invalid")
       end
