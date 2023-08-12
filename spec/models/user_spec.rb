@@ -84,9 +84,9 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Last name is invalid")
       end
       it '名(全角)に、半角文字が含まれていると登録できない' do
-        @user.last_name = 'Tarou'
+        @user.first_name = 'Tarou'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name is invalid")
+        expect(@user.errors.full_messages).to include("First name is invalid")
       end
       it 'お名前カナ(全角)は、名字がないと登録できない' do
         @user.read_last = ''
