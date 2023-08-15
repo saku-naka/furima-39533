@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :item do
     association :user
     
-    product_name     {Faker::Name.name}
-    description      {Faker::Lorem.sentence}
+    product_name     { Faker::Name.name }
+    description      { Faker::Lorem.sentence }
     category_id      { 2 }
     condition_id     { 2 }
     postage_id       { 2 }
