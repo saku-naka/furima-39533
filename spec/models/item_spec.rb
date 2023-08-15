@@ -8,7 +8,6 @@ RSpec.describe Item, type: :model do
   describe '商品の登録' do
     context '出品登録できる場合' do
       before do
-        @user = FactoryBot.create(:user) 
         @item = FactoryBot.build(:item, user: @user) 
       end
       it "正常に登録できる" do
