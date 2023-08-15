@@ -11,13 +11,25 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_date
 
-  validates :product_name, presence: true
-  validates :description, presence: true
-  validates :category_id, presence: true, numericality: { other_than: 1}
-  validates :condition_id, presence: true,numericality: { other_than: 1}
-  validates :postage_id, presence: true,numericality: { other_than: 1}
-  validates :prefecture_id, presence: true,numericality: { other_than: 1}
-  validates :shipping_date_id, presence: true,numericality: { other_than: 1}
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999}
-  validates :image , presence: true
+  with_options presence: true do
+    validates :image 
+    validates :product_name
+    validates :description
+    validates :category_id
+    validates :condition_id
+    validates :postage_id
+    validates :prefecture_id
+    validates :shipping_date_id
+    validates :price,  numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999}
+    validates :user_id
+  end
+
+  with_options numericality: { other_than: 0 } do
+    validates :category_id
+    validates :condition_id
+    validates :postage_id
+    validates :prefecture_id
+    validates :shipping_date_id
+  end
+  
 end
