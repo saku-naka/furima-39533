@@ -19,20 +19,20 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy
-    redirect_to_root_path
-  end
+  #def destroy
+    #item = Item.find(params[:id])
+    #item.destroy
+    #redirect_to_root_path
+  #end
 
-  def edit
-  end
+  #def edit
+  #end
 
-  def update
-    item = Item.find(params[:id])
-    item.update(item,_params)
-    redirect_to_root_path
-  end
+  #def update
+   # item = Item.find(params[:id])
+   # item.update(item,_params)
+   # redirect_to_root_path
+ # end
 
   def show
   end
