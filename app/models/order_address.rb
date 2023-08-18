@@ -1,8 +1,7 @@
-class DonationAddress
+class OrderAddress 
   include ActiveModel::Model
-  attr_accessor :postcode, :prefecture_id, :municipality, :address, :building_name :phone_num, :user_id, :item_id
+  attr_accessor :postcode, :prefecture_id, :municipality, :address, :building_name, :phone_num, :user_id, :item_id
 
-  belongs_to :prefecture
 
   with_options presence: true do
     validates :user_id
@@ -16,6 +15,6 @@ class DonationAddress
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
-  end   ShippingAddress.crate(order_id: order_id, post_code: post_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_num: phone_num)
-
+    ShippingAddress.crate(order_id: order_id, post_code: post_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_num: phone_num)
+  end
 end
