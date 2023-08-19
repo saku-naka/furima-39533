@@ -1,12 +1,12 @@
 class OrderAddress 
   include ActiveModel::Model
-  attr_accessor :postcode, :prefecture_id, :municipality, :address, :building_name, :phone_num, :user_id, :item_id
+  attr_accessor :user_id, :item_id, :post_code, :prefecture_id, :municipality, :address, :building_name, :phone_num
 
 
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :prefecture_id, numericality: { other_than: 0 } 
     validates :municipality
     validates :address
@@ -14,7 +14,7 @@ class OrderAddress
   end
 
   def save
-    order = Order.create(user_id: user_id, item_id: item_id)
-    ShippingAddress.crate(order_id: order_id, post_code: post_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_num: phone_num)
+      order = Order.create(user_id: user_id, item_id: item_id)
+      shipping_address = ShippingAddress.create(order_id: order.id, post_code: post_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_num: phone_num)
   end
 end
