@@ -6,11 +6,6 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def new
-    @order_address = OrderAddress.new
-    @item = Item.find(params[:item_id])
-  end
-
   def create
     @order_address = OrderAddress.new(order_params)
     @item = Item.find(params[:item_id])
