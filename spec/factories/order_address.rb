@@ -1,7 +1,10 @@
 FactoryBot.define do
   factory :order_address do
-    user_id { 2 }
-    item_id { 2 }
+    association :user, factory: :user
+    association :item, factory: :item
+
+    user_id { @user_id }
+    item_id { @item_id }
     token {"tok_abcdefghijk00000000000000000"}
     post_code { '123-4567' }
     prefecture_id { 2 }
