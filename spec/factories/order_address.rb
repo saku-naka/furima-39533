@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :order_address do
-    association :user, factory: :user
-    association :item, factory: :item
 
     user_id { @user_id }
     item_id { @item_id }
